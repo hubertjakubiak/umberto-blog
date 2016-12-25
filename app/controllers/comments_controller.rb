@@ -6,7 +6,8 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @post, notice: 'Comment has been saved!'
     else
-      render :show
+      @comments = @post.comments
+      render 'posts/show'
     end
   end
 
